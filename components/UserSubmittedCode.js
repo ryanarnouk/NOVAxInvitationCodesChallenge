@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function UserSubmittedCode(data) {
   console.log(data.domain);
-  //console.log(referral.referral);
   return (
     <View style={styles.referral}>
       <Text style={styles.domain}>{data.website}</Text>

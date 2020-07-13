@@ -27,15 +27,15 @@ export default class AccountScreen extends Component {
   }
 
   handleCode = (text) => {
-    this.setState({ code: text }, console.log(this.state.code));
+    this.setState({ code: text });
   }
 
   handleDesc = (text) => {
-    this.setState({ desc: text }, console.log(this.state.desc));
+    this.setState({ desc: text });
   }
 
   handleWebsite = (text) => {
-    this.setState({ website: text }, console.log(this.state.website));
+    this.setState({ website: text });
   }
 
   submit = () => {
@@ -53,7 +53,7 @@ export default class AccountScreen extends Component {
     this.setState({ 
       modalVisible: false, 
       myCodes: [...this.state.myCodes, newEntry]
-    }, console.log(this.state.myCodes));
+    });
 
     this.clearCodeState();
   }
@@ -129,16 +129,6 @@ export default class AccountScreen extends Component {
             </View>
           </View>
         </Modal>
-        {/*<TouchableOpacity
-          activeOpacity={0.7}
-          onPress={() => {
-            this.setState({ modalVisible: true });
-          }}
-          style={styles.TouchableOpacityStyle}>
-          <View style={styles.addButton}>
-            <Ionicons name="ios-add" size={30} color="red" style={styles.FloatingButtonStyle}/>
-          </View>
-        </TouchableOpacity>*/}
         <FAB
           icon="plus"
           style={styles.addButton}

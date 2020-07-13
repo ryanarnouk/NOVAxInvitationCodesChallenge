@@ -17,7 +17,6 @@ export default class HomeScreen extends Component {
       isDataFetched: false, 
       noResults: false,
       search: '',
-      loading: false
     }
   }
 
@@ -45,7 +44,7 @@ export default class HomeScreen extends Component {
     this.search.clear();
   }
 
-  SearchFilterFunction(text, callback) {
+  SearchFilterFunction(text) {
     const newArray = this.state.referralcodes.filter(function (val, key) {
       return val.slug.includes(text.toLowerCase());
     })
@@ -56,7 +55,7 @@ export default class HomeScreen extends Component {
       this.setState({noResults: false});
     }
 
-    this.setState({ search: text, homepagecodes: newArray, loading: false });
+    this.setState({ search: text, homepagecodes: newArray });
   }
 
   render() {
@@ -66,10 +65,8 @@ export default class HomeScreen extends Component {
         <SearchBar
           round
           searchIcon={{ size: 24 }}
-          onChangeText={text => {
-            this.setState({ loading: true });
-            this.SearchFilterFunction(text)
-          }}
+          onChangeText={text => this.SearchFilterFunction(text)}
+          showLoading={!this.state.isDataFetched}
           onClear={text => this.SearchFilterFunction('')}
           placeholder="Search"
           value={this.state.search}
@@ -78,7 +75,6 @@ export default class HomeScreen extends Component {
         <Text style={styles.header}>Recommended</Text>
         {!this.state.isDataFetched ? <Text>Loading</Text>:
           <ScrollView style={{marginBottom: 140}}>
-            {this.state.loading ? <Text>Loading</Text>:false}
             {this.state.noResults ? <Text style={{flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>No Results Found</Text>:false}
             {this.state.homepagecodes !== null ? this.state.homepagecodes.map((val, index) => {
               return <Referral referral={val} key={index}/>

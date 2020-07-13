@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function Referral(referral) {
-  //console.log(referral.referral);
   return (
     <View style={styles.referral}>
       {referral.referral.icon ? 

@@ -2,11 +2,12 @@
   "name": "Challenge",
   "displayName": "Challenge",
   "expo": {
-    "name": "Challenge",
-    "slug": "Challenge",
+    "name": "NOVAxChallenge",
+    "slug": "challenge",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "description": ""
   }
 }
